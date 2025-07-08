@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #F8D849; /* A warm, inviting yellow */
-            --text-color-dark: #333333;
-            --text-color-light: #555555;
-            --bg-light: #f8fafc;
+            --primary-color: #2D5B8D; /* A sapphire blue */
+            --text-color-dark: #222222; /* Darker for contrast */
+            --text-color-light: #444444; /* Slightly lighter for secondary text */
+            --bg-light: #e0f2f7; /* Very light blue for background */
             --bg-white: #ffffff;
-            --border-light: #e0e0e0;
+            --border-light: #bfdae3; /* Light blue border */
         }
 
         body {
@@ -91,6 +91,10 @@
             @apply text-gray-700 hover:text-gray-900 transition duration-300 ease-in-out font-medium;
             position: relative;
             padding-bottom: 0.3rem;
+            color: var(--text-color-dark); /* Ensure nav links use dark text */
+        }
+        .nav-link:hover {
+            color: var(--primary-color); /* Hover effect for nav links */
         }
         .nav-link::after {
             content: '';
@@ -110,7 +114,7 @@
         /* Hero Section */
         .hero-section {
             background-color: var(--primary-color); /* Use primary color for the background */
-            color: var(--text-color-dark); /* Dark text on yellow background */
+            color: var(--bg-white); /* White text on sapphire background */
             padding-top: 5rem;
             padding-bottom: 5rem;
             text-align: center;
@@ -139,13 +143,13 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 0.5rem;
-            color: var(--text-color-dark);
+            color: var(--bg-white); /* White text for hero title */
         }
         .hero-subtitle {
             font-size: 1.75rem;
             font-weight: 400;
             margin-bottom: 1rem;
-            color: var(--text-color-dark);
+            color: var(--bg-white); /* White text for hero subtitle */
         }
         .hero-quote {
             font-family: 'Playfair Display', serif; /* Use Playfair for quotes */
@@ -155,10 +159,10 @@
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 2rem;
-            color: var(--text-color-dark);
+            color: var(--bg-white); /* White text for hero quote */
         }
         .btn-primary {
-            @apply inline-block bg-gray-800 text-white font-medium py-3 px-8 rounded-full hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50;
+            @apply inline-block bg-white text-gray-800 font-medium py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50;
             letter-spacing: 0.05em;
         }
 
@@ -288,7 +292,7 @@
 
         /* Footer */
         footer {
-            background-color: #222222; /* Darker footer */
+            background-color: #1a3c5a; /* Darker blue for footer */
             color: #dddddd;
             padding: 1.5rem 0;
             font-size: 0.9rem;
@@ -314,7 +318,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col items-center justify-center">
                 <div class="mb-8">
-                    <img src="https://placehold.co/180x180/F8D849/333333?text=Priya" alt="Priya Rajpurohit Photo" class="hero-photo rounded-full object-cover mx-auto">
+                    <img src="https://placehold.co/180x180/2D5B8D/ffffff?text=Priya" alt="Priya Rajpurohit Photo" class="hero-photo rounded-full object-cover mx-auto">
                 </div>
                 <div>
                     <h1 class="hero-title">
@@ -462,7 +466,7 @@
             <h2 class="section-title">Case Studies</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+1" alt="Case Study 1 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+1';">
+                    <img src="https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+1" alt="Case Study 1 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+1';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Perception-Driven Interface Design</h3>
                         <p class="case-study-card-category">UI/UX, Neuroaesthetics</p>
@@ -471,13 +475,13 @@
                         </p>
                         <a href="#" class="case-study-card-link">
                             View Case Study
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 0 00-2 2v10a2 0 002 2h10a2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </div>
 
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+2" alt="Case Study 2 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+2';">
+                    <img src="https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+2" alt="Case Study 2 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+2';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Emotional Response in VR Environments</h3>
                         <p class="case-study-card-category">Neuroaesthetics, VR Research</p>
@@ -492,7 +496,7 @@
                 </div>
 
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+3" alt="Case Study 3 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+3';">
+                    <img src="https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+3" alt="Case Study 3 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+3';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Cognitive Load Reduction in Dashboards</h3>
                         <p class="case-study-card-category">UX Research, Data Visualization</p>
@@ -507,7 +511,7 @@
                 </div>
 
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+4" alt="Case Study 4 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+4';">
+                    <img src="https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+4" alt="Case Study 4 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2D5B8D/ffffff?text=Case+Study+4';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Aesthetic Usability of E-commerce Platforms</h3>
                         <p class="case-study-card-category">UX, Neuroaesthetics</p>
