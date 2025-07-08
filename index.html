@@ -4,49 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priya Rajpurohit - Neuroaesthetics & UX Researcher Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #F8D849; /* A warm, inviting yellow */
+            --text-color-dark: #333333;
+            --text-color-light: #555555;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-light: #e0e0e0;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Very light gray, almost white */
-            color: #333333; /* Dark Gray for text */
+            background-color: var(--bg-light);
+            color: var(--text-color-dark);
+            line-height: 1.6;
         }
+
+        h1, h2, h3, .section-title {
+            font-family: 'Playfair Display', serif; /* For headings */
+            color: var(--text-color-dark);
+        }
+
         .container {
-            max-width: 800px; /* Even narrower container for single-pane feel */
+            max-width: 960px; /* Slightly wider for better content flow */
             margin-left: auto;
             margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
-        /* Minimalist and Aesthetic styles */
+
+        /* General Spacing & Layout */
+        section {
+            padding-top: 4rem; /* More generous vertical padding */
+            padding-bottom: 4rem;
+        }
+
         .card {
-            background-color: #ffffff;
-            border-radius: 0.75rem; /* rounded-xl for a softer, modern look */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
-            border: 1px solid #f0f4f8; /* Lighter, more aesthetic border */
-            padding: 2rem; /* Increased padding for more breathing room */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
+            background-color: var(--bg-white);
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* More noticeable but still subtle shadow */
+            border: 1px solid var(--border-light);
+            padding: 2.5rem; /* Increased padding */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .card:hover {
-            transform: translateY(-5px); /* Subtle lift on hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Slightly more pronounced shadow on hover */
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-title {
+            font-size: 2.5rem; /* Larger for impact */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+            color: var(--text-color-dark);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header Specifics */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-color-dark);
+        }
+        .nav-link {
+            @apply text-gray-700 hover:text-gray-900 transition duration-300 ease-in-out font-medium;
+            position: relative;
+            padding-bottom: 0.3rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease-out;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--primary-color); /* Use primary color for the background */
+            color: var(--text-color-dark); /* Dark text on yellow background */
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* For potential background patterns */
+        }
+        .hero-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+             pointer-events: none;
+         }
+        .hero-photo {
+            width: 150px;
+            height: 150px;
+            border: 4px solid var(--bg-white);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: var(--text-color-dark);
+        }
+        .hero-subtitle {
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text-color-dark);
+        }
+        .hero-quote {
+            font-family: 'Playfair Display', serif; /* Use Playfair for quotes */
+            font-size: 1.25rem;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem;
+            color: var(--text-color-dark);
         }
         .btn-primary {
-            /* Changed from indigo to gray */
-            @apply inline-block bg-gray-700 text-white font-medium py-3 px-8 rounded-lg hover:bg-gray-800 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50;
+            @apply inline-block bg-gray-800 text-white font-medium py-3 px-8 rounded-full hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50;
+            letter-spacing: 0.05em;
         }
-        .link-secondary {
-            /* Changed from indigo to gray */
-            @apply text-gray-600 hover:text-gray-900 transition duration-300 ease-in-out;
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-color-light);
+            text-align: center;
         }
-        .section-heading {
-            /* This class is now unused as headings are removed, but kept for reference */
-            @apply text-3xl font-bold text-center mb-10 text-gray-800 border-b border-gray-100 pb-4; /* Lighter underline effect */
+
+        /* Experience & Accomplishments Sections */
+        .experience-item, .education-item, .certification-item, .skill-category {
+            background-color: var(--bg-white);
+            border-left: 4px solid var(--primary-color); /* Highlight with primary color */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
-        /* Specific styles for case study cards */
+        .experience-item:hover, .education-item:hover, .certification-item:hover, .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color-dark);
+            margin-bottom: 0.5rem;
+        }
+        .item-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-color-light);
+            margin-bottom: 0.75rem;
+        }
+        .item-description {
+            font-size: 1rem;
+            color: var(--text-color-light);
+        }
+        .item-description li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .skill-category h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color); /* Skill category titles in primary color */
+        }
+        .skill-category ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 0;
+        }
+        .skill-category li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: var(--text-color-light);
+        }
+        .skill-category li::before {
+            content: '•'; /* Custom bullet point */
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            flex-shrink: 0;
+        }
+
+        /* Case Studies Section */
         .case-study-card {
             @apply bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-103 hover:shadow-xl;
+            border: 1px solid var(--border-light);
         }
         .case-study-card img {
             @apply w-full h-48 object-cover;
@@ -55,53 +245,85 @@
             @apply p-6;
         }
         .case-study-card-title {
+            font-family: 'Playfair Display', serif;
             @apply text-xl font-semibold text-gray-900 mb-2;
         }
         .case-study-card-category {
-            /* Changed from indigo to gray */
-            @apply text-sm text-gray-700 mb-3;
+            @apply text-sm text-gray-600 mb-3;
+            color: var(--text-color-light);
         }
         .case-study-card-description {
             @apply text-gray-700 text-base mb-4;
+            color: var(--text-color-light);
         }
         .case-study-card-link {
-            /* Changed from indigo to gray */
             @apply inline-flex items-center text-gray-700 hover:text-gray-900 font-medium transition-colors;
+            color: var(--primary-color); /* Link color in primary */
+        }
+        .case-study-card-link:hover {
+            color: var(--text-color-dark);
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background-color: var(--bg-white);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
+            padding: 3rem;
+            text-align: center;
+        }
+        .contact-text {
+            font-size: 1.25rem;
+            color: var(--text-color-light);
+            margin-bottom: 2rem;
+        }
+        .social-link {
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .social-link:hover {
+            color: var(--primary-color); /* Hover effect for social icons */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222222; /* Darker footer */
+            color: #dddddd;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="bg-white py-4 border-b border-gray-100">
+    <header class="py-4">
         <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold text-gray-800 mb-2 sm:mb-0">Priya Rajpurohit</a>
-            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm"> <!-- Font size reduced here -->
-                <a href="#about" class="link-secondary">About</a>
-                <a href="#experience" class="link-secondary">Experience</a>
-                <a href="#accomplishments" class="link-secondary">Accomplishments</a>
-                <a href="#skills" class="link-secondary">Skills</a>
-                <a href="#case-studies" class="link-secondary">Case Studies</a> <!-- Added Case Studies link -->
-                <a href="#contact" class="link-secondary">Contact</a>
+            <a href="#" class="header-title mb-2 sm:mb-0">Priya Rajpurohit</a>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#accomplishments" class="nav-link">Accomplishments</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#case-studies" class="nav-link">Case Studies</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="bg-gray-800 text-white py-20 text-center">
+    <section id="home" class="hero-section">
         <div class="container mx-auto px-4">
             <div class="flex flex-col items-center justify-center">
                 <div class="mb-8">
-                    <!-- Placeholder for your professional photo. Replace with your actual photo URL. -->
-                    <img src="https://placehold.co/180x180/4a4a4a/ffffff?text=Priya" alt="Priya Rajpurohit Photo" class="w-44 h-44 rounded-full object-cover border-2 border-white mx-auto">
+                    <img src="https://placehold.co/180x180/F8D849/333333?text=Priya" alt="Priya Rajpurohit Photo" class="hero-photo rounded-full object-cover mx-auto">
                 </div>
                 <div>
-                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+                    <h1 class="hero-title">
                         Priya Rajpurohit
                     </h1>
-                    <p class="text-xl sm:text-2xl font-light mb-4">
+                    <p class="hero-subtitle">
                         Neuroaesthetics & UX Researcher
                     </p>
-                    <p class="text-lg sm:text-xl font-light italic mb-8">
+                    <p class="hero-quote">
                         "Crafting Experiences that Resonate: Where Intuitive Design Meets the Science of Perception."
                     </p>
                     <a href="#case-studies" class="btn-primary">Explore My Work</a>
@@ -110,28 +332,25 @@
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="py-16 bg-gray-50">
+    <section id="about" class="bg-gray-50">
         <div class="container mx-auto px-4">
-            <!-- <h2 class="section-heading">About</h2> -->
-            <div class="card max-w-2xl mx-auto p-8">
-                <p class="text-lg leading-relaxed text-gray-700">
+            <h2 class="section-title">About Me</h2>
+            <div class="card max-w-2xl mx-auto">
+                <p class="about-text">
                     I am a Neuroaesthetics and UX Researcher, bridging brain science with user experience. My work focuses on the cognitive and emotional responses to design and technology, aiming to create intuitive and aesthetically pleasing digital interfaces. With a background in Cognitive Neuroscience and practical UX research, I employ mixed methods to translate scientific insights into actionable design recommendations, enhancing user satisfaction and product efficacy.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Research & Experience Section -->
-    <section id="experience" class="py-16">
+    <section id="experience">
         <div class="container mx-auto px-4">
-            <!-- <h2 class="section-heading">Research & Experience</h2> -->
-            <div class="space-y-8"> <!-- Adjusted spacing -->
-                <!-- Masters Research Project -->
-                <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Masters Research Project</h3>
-                    <p class="text-gray-600 text-sm mb-1">February 2025 - Present</p>
-                    <p class="text-gray-700 mb-3">Goldsmiths, University of London and Kinda Studios, London</p>
+            <h2 class="section-title">Research & Experience</h2>
+            <div class="space-y-8">
+                <div class="experience-item">
+                    <h3 class="item-title">Masters Research Project</h3>
+                    <p class="item-subtitle">February 2025 - Present</p>
+                    <p class="item-description mb-3">Goldsmiths, University of London and Kinda Studios, London</p>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
                         <li>Conducted literature review to identify existing research gaps.</li>
                         <li>Informed methodology and designed experiment.</li>
@@ -139,22 +358,20 @@
                     </ul>
                 </div>
 
-                <!-- Research Volunteer (Remote) -->
-                <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Research Volunteer (Remote)</h3>
-                    <p class="text-gray-600 text-sm mb-1">September 2023 - Present</p>
-                    <p class="text-gray-700 mb-3">ARISA Foundation</p>
+                <div class="experience-item">
+                    <h3 class="item-title">Research Volunteer (Remote)</h3>
+                    <p class="item-subtitle">September 2023 - Present</p>
+                    <p class="item-description mb-3">ARISA Foundation</p>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
                         <li>Volunteering in research projects in Cognitive Neuroscience and Neuroaesthetics.</li>
                         <li>Guide: Dr. Kohinoor M. Darda.</li>
                     </ul>
                 </div>
 
-                <!-- Undergraduate Researcher -->
-                <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Undergraduate Researcher</h3>
-                    <p class="text-gray-600 text-sm mb-1">May 2019 - December 2019</p>
-                    <p class="text-gray-700 mb-3">KRaCR Lab, IIIT Delhi</p>
+                <div class="experience-item">
+                    <h3 class="item-title">Undergraduate Researcher</h3>
+                    <p class="item-subtitle">May 2019 - December 2019</p>
+                    <p class="item-description mb-3">KRaCR Lab, IIIT Delhi</p>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
                         <li>Built an environmental knowledge graph for Okhla by analyzing 1.3k+ news articles.</li>
                         <li>Designed ontology in Protégé and extracted triples with OpenIE and CoreNLP.</li>
@@ -164,14 +381,12 @@
         </div>
     </section>
 
-    <!-- Accomplishments & Education Section -->
-    <section id="accomplishments" class="py-16 bg-gray-50">
+    <section id="accomplishments" class="bg-gray-50">
         <div class="container mx-auto px-4">
-            <!-- <h2 class="section-heading">Accomplishments & Education</h2> -->
+            <h2 class="section-title">Accomplishments & Education</h2>
             <div class="space-y-8">
-                <!-- Education -->
-                <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Education</h3>
+                <div class="education-item">
+                    <h3 class="item-title">Education</h3>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
                         <li>
                             <span class="font-medium">MSc Psychology of Arts, Neuroaesthetics and Creativity</span><br>
@@ -184,9 +399,8 @@
                     </ul>
                 </div>
 
-                <!-- Certifications & Workshops -->
-                <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Certifications & Workshops</h3>
+                <div class="certification-item">
+                    <h3 class="item-title">Certifications & Workshops</h3>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
                         <li>Deep Learning Specialisation by DeepLearning.AI (Coursera)</li>
                         <li>Medical Neuroscience by Duke University (Coursera)</li>
@@ -195,17 +409,15 @@
                     </ul>
                 </div>
 
-                <!-- Language & Other Scores -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Language & Other Scores</h3>
+                    <h3 class="item-title">Language & Other Scores</h3>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
                         <li>IELTS Academic English: 7.5 (C1)</li>
                     </ul>
                 </div>
 
-                <!-- Volunteering & Outreach -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-700">Volunteering & Outreach</h3>
+                    <h3 class="item-title">Volunteering & Outreach</h3>
                     <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
                         <li>Art Facilitator for CEHRO, NGO in Delhi</li>
                         <li>Volunteered in various culture and technical fests of IIIT Delhi</li>
@@ -215,47 +427,42 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16">
+    <section id="skills">
         <div class="container mx-auto px-4">
-            <!-- <h2 class="section-heading">Skills</h2> -->
-            <div class="card max-w-2xl mx-auto p-8">
-                <div class="space-y-6"> <!-- Converted to single column, adjusted spacing -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-700">Programming & Tools</h3>
-                        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
-                            <li>Python, R, MATLAB, OpenCV, scikit-learn, Jamovi</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-700">Research Methodologies</h3>
-                        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
-                            <li>Usability Testing, In-depth Interviews, Surveys</li>
-                            <li>Research Skills, Research Design & Analysis</li>
-                            <li>Multivariate Statistics, Statistical Machine Learning, Big Data Analytics</li>
-                            <li>Empirical Research Methods</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-700">Key Coursework</h3>
-                        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-1">
-                            <li>Probability & Statistics, Linear Algebra, Artificial Intelligence</li>
-                            <li>Cognitive Psychology, Positive Psychology, Aesthetic Science</li>
-                        </ul>
-                    </div>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid max-w-4xl mx-auto">
+                <div class="skill-category">
+                    <h3>Programming & Tools</h3>
+                    <ul>
+                        <li>Python, R, MATLAB, OpenCV, scikit-learn, Jamovi</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Research Methodologies</h3>
+                    <ul>
+                        <li>Usability Testing, In-depth Interviews, Surveys</li>
+                        <li>Research Skills, Research Design & Analysis</li>
+                        <li>Multivariate Statistics, Statistical Machine Learning, Big Data Analytics</li>
+                        <li>Empirical Research Methods</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Key Coursework</h3>
+                    <ul>
+                        <li>Probability & Statistics, Linear Algebra, Artificial Intelligence</li>
+                        <li>Cognitive Psychology, Positive Psychology, Aesthetic Science</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="py-16 bg-gray-50">
+    <section id="case-studies" class="bg-gray-50">
         <div class="container mx-auto px-4">
-            <!-- <h2 class="section-heading">Case Studies</h2> -->
+            <h2 class="section-title">Case Studies</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <!-- Case Study 1 -->
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/e0e0e0/333333?text=Case+Study+1" alt="Case Study 1 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e0e0e0/333333?text=Case+Study+1';">
+                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+1" alt="Case Study 1 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+1';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Perception-Driven Interface Design</h3>
                         <p class="case-study-card-category">UI/UX, Neuroaesthetics</p>
@@ -269,9 +476,8 @@
                     </div>
                 </div>
 
-                <!-- Case Study 2 -->
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/d0d0d0/333333?text=Case+Study+2" alt="Case Study 2 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d0d0d0/333333?text=Case+Study+2';">
+                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+2" alt="Case Study 2 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+2';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Emotional Response in VR Environments</h3>
                         <p class="case-study-card-category">Neuroaesthetics, VR Research</p>
@@ -280,14 +486,13 @@
                         </p>
                         <a href="#" class="case-study-card-link">
                             View Case Study
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 0 002 2h10a2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 0 00-2 2v10a2 0 002 2h10a2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Case Study 3 -->
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/c0c0c0/333333?text=Case+Study+3" alt="Case Study 3 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/c0c0c0/333333?text=Case+Study+3';">
+                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+3" alt="Case Study 3 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+3';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Cognitive Load Reduction in Dashboards</h3>
                         <p class="case-study-card-category">UX Research, Data Visualization</p>
@@ -301,9 +506,8 @@
                     </div>
                 </div>
 
-                <!-- Case Study 4 (Example - you can add more) -->
                 <div class="case-study-card">
-                    <img src="https://placehold.co/400x300/b0b0b0/333333?text=Case+Study+4" alt="Case Study 4 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/b0b0b0/333333?text=Case+Study+4';">
+                    <img src="https://placehold.co/400x300/F8D849/333333?text=Case+Study+4" alt="Case Study 4 Thumbnail" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8D849/333333?text=Case+Study+4';">
                     <div class="case-study-card-content">
                         <h3 class="case-study-card-title">Aesthetic Usability of E-commerce Platforms</h3>
                         <p class="case-study-card-category">UX, Neuroaesthetics</p>
@@ -320,17 +524,15 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
+    <section id="contact" class="bg-gray-50">
         <div class="container mx-auto px-4">
-            <!-- <h2 class="section-heading">Contact</h2> -->
-            <div class="card max-w-xl mx-auto p-8 text-center">
-                <p class="text-lg text-gray-700 mb-8">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-card max-w-xl mx-auto">
+                <p class="contact-text">
                     Connect with me professionally on LinkedIn.
                 </p>
                 <div class="flex justify-center space-x-6">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/priyarajp/" class="link-secondary text-gray-600 hover:text-gray-800 text-2xl" aria-label="LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/priyarajp/" class="social-link text-2xl" aria-label="LinkedIn Profile">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
@@ -340,7 +542,6 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-900 text-white py-6 text-center text-sm">
         <div class="container mx-auto px-4">
             <p>&copy; 2025 Priya Rajpurohit. All rights reserved.</p>
