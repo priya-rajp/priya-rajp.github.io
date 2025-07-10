@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digitizing Kirana Stores using WhatsApp Communities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2D5B8D; /* A sapphire blue */
+            --text-color-dark: #222222; /* Darker for contrast */
+            --text-color-light: #444444; /* Slightly lighter for secondary text */
+            --bg-light: #e0f2f7; /* Very light blue for background */
+            --bg-white: #ffffff;
+            --border-light: #bfdae3; /* Light blue border */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+        }
+
+        /* Headings - use Playfair Display and dark text color by default */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color-dark);
+        }
+
+        /* Specific style for the main title (h1) to match the primary color */
+        h1 {
+            color: var(--primary-color);
+            font-size: 4.5rem; /* Large size for main title */
+            text-align: center;
+            margin-bottom: 3rem;
+            text-wrap: balance; /* Improves line breaks for large text */
+        }
+
+        /* Section titles to match portfolio's .section-title style */
+        .section-title {
+            font-size: 2.5rem; /* Larger for impact */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+            color: var(--text-color-dark);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Container for consistent max-width and centering */
+        .container {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Section padding */
+        section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        /* Card style for content blocks, similar to portfolio */
+        .card {
+            background-color: var(--bg-white);
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* More noticeable but still subtle shadow */
+            border: 1px solid var(--border-light);
+            padding: 2.5rem; /* Increased padding */
+            margin-bottom: 2rem; /* Add margin to separate cards */
+        }
+
+        /* Sub-heading within cards */
+        .card h3 {
+            font-size: 1.75rem; /* Slightly smaller than section-title, larger than body text */
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Image styling for screenshots and wireframes (if any were added) */
+        .screenshot, .wireframe {
+            display: block;
+            max-width: 100%;
+            margin: 2rem auto; /* Center images and add more vertical space */
+            border-radius: 0.75rem; /* Match card border-radius */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Consistent shadow */
+            border: 1px solid var(--border-light); /* Consistent border */
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0; /* More vertical space */
+            border-radius: 0.5rem; /* Slightly rounded corners for table */
+            overflow: hidden; /* Ensures rounded corners apply to borders */
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-light);
+        }
+
+        th, td {
+            padding: 1rem; /* Increased padding for readability */
+            text-align: left;
+            color: var(--text-color-dark); /* Ensure text color is dark */
+        }
+
+        th {
+            background-color: #e3ecf6; /* Light blue background for headers */
+            font-weight: 600; /* Make header text bolder */
+        }
+
+        /* Highlight style */
+        .highlight {
+            background-color: #fef3c7; /* Light yellow background */
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500; /* Make highlighted text slightly bolder */
+            color: var(--text-color-dark); /* Ensure highlight text is readable */
+        }
+
+        /* List styling for better readability */
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        ul li {
+            margin-bottom: 0.75rem; /* Space out list items */
+            color: var(--text-color-light); /* Lighter text for list items */
+        }
+
+        /* Strong tags for key info */
+        strong {
+            color: var(--primary-color); /* Highlight key info with primary color */
+        }
+
+        /* Link styling for consistency */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--text-color-dark);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digitizing Local Kirana Stores</h1>
+
+        <section id="about-project" class="card">
+            <h2 class="section-title">About This Project</h2>
+            <h3>Initial Design Brief</h3>
+            <p>Design a simple, accessible solution to help local kiranawalas in Indian urban markets digitize and grow their business while maintaining control.</p>
+
+            <h3>Problem Statement</h3>
+            <p>Local kirana stores are struggling with competition from online platforms like Zepto, Blinkit, and Swiggy Instamart in India. Many shopkeepers are digitally underrepresented yet trusted by their community.</p>
+
+            <h3>Opportunity</h3>
+            <p>Leverage WhatsApp Communities to offer a light, easy-to-use digital layer that:</p>
+            <ul class="list-disc list-inside">
+                <li>Increases their visibility</li>
+                <li>Allows effortless catalog management</li>
+                <li>Enables order and delivery tracking</li>
+                <li>Preserves customer relationships</li>
+            </ul>
+        </section>
+
+        <section id="design-process" class="card">
+            <h2 class="section-title">Design Process</h2>
+            <h3>Empathize</h3>
+            <ul class="list-disc list-inside">
+                <li>Field visits, contextual inquiry, and one-on-one interviews.</li>
+                <li>10 grocery shopkeepers (age 30–50) and 4 customers were interviewed.</li>
+            </ul>
+
+            <h3>Define</h3>
+            <ul class="list-disc list-inside">
+                <li>Synthesized data using affinity mapping</li>
+                <li>Key pain points and desires identified for both shopkeepers and customers</li>
+            </ul>
+
+            <h3>Ideate</h3>
+            <ul class="list-disc list-inside">
+                <li>Explored integrations with WhatsApp Communities</li>
+                <li>Avoided new app creation per user request</li>
+            </ul>
+
+            <h3>Prototype</h3>
+            <ul class="list-disc list-inside">
+                <li>Lo-fi wireframes, registration flow, catalog builder, ordering journey</li>
+            </ul>
+
+            <h3>Test</h3>
+            <ul class="list-disc list-inside">
+                <li>Moderated usability testing with real users</li>
+                <li>Iterated based on pain points and confusion in product discovery and delivery setup</li>
+            </ul>
+        </section>
+
+        <section id="user-research" class="card">
+            <h2 class="section-title">User Research</h2>
+            <h3>Key Questions</h3>
+            <ul class="list-disc list-inside">
+                <li>How do kirana stores operate daily?</li>
+                <li>What digital tools are the kiranawalas familiar with?</li>
+                <li>How do the kiranawalas manage inventory, billing, and delivery?</li>
+                <li>What challenges do customers face?</li>
+            </ul>
+
+            <h3>User Personas</h3>
+            <p><strong>Primary:</strong> Sandesh Salve</p>
+            <ul class="list-disc list-inside">
+                <li>45 years, Urban grocery shop owner</li>
+                <li>Wants: Digitization, increased sales, customer retention</li>
+                <li>Needs: Easy inventory system, customer communication, trust-building tools</li>
+                <li>Fears: Losing customers to 10 min delivery online stores</li>
+            </ul>
+            <!-- Secondary User Persona Removed -->
+        </section>
+
+        <section id="comparative-analysis" class="card">
+            <h2 class="section-title">Comparative Analysis</h2>
+            <p>Explored:</p>
+            <ul class="list-disc list-inside">
+                <li><strong>Dunzo:</strong> Competitor in hyperlocal delivery, integrates local shops.</li>
+                <li><strong>Zepto, Blinkit, Swiggy Instamart:</strong> Centralized warehouse model.</li>
+            </ul>
+           
+        </section>
+
+        <section id="key-findings" class="card">
+            <h2 class="section-title">Key Research Findings</h2>
+            <ul class="list-disc list-inside">
+                <li>Most shopkeepers prefer to avoid downloading new apps</li>
+                <li>High value placed on customer relationships and trust</li>
+                <li>Need for simple, intuitive catalog creation</li>
+                <li>Customers trust local shops for loose grains and quality produce</li>
+                <li>A WhatsApp-based model was preferred due to familiarity</li>
+            </ul>
+        </section>
+
+        <section id="design-strategy" class="card">
+            <h2 class="section-title">Design Ideas & Strategy</h2>
+            <h3>Design Goals</h3>
+            <ul class="list-disc list-inside">
+                <li>No new app: Use WhatsApp Community & WhatsApp Business</li>
+                <li>Easy onboarding for shopkeepers</li>
+                <li>Catalog creation via barcode scanning</li>
+                <li>Hyperlocal delivery customization</li>
+                <li>Maintain personal trust through direct chats</li>
+            </ul>
+        </section>
+
+        <section id="wireframes-flow" class="card">
+            <h2 class="section-title">Wireframes & Flow</h2>
+            <h3>Grocery Shopkeeper Onboarding</h3>
+            <ul class="list-disc list-inside">
+                <li>Register store → Verify identity → Add store photo → Set delivery slots & range</li>
+            </ul>
+            <h3>Product Catalog Creation</h3>
+            <ul class="list-disc list-inside">
+                <li>Scan barcode or add manually</li>
+                <li>Simple product entry: Name, category, price, quantity</li>
+                <li>Viewable by customers via WhatsApp chat/catalog</li>
+            </ul>
+            <h3>Order & Delivery</h3>
+            <ul class="list-disc list-inside">
+                <li>Customer browses catalog via Community</li>
+                <li>Adds products to cart → Selects time slot → Checkout via WhatsApp Pay or COD</li>
+                <li>Order summary sent in chat with delivery details</li>
+            </ul>
+            <!-- Placeholder for wireframe images if you want to add them later -->
+            <!-- <p class="text-center text-gray-500 italic mt-8">Wireframe images for onboarding, catalog, and order flows would go here.</p> -->
+        </section>
+
+        <section id="usability-testing" class="card">
+            <h2 class="section-title">Usability Testing</h2>
+            <h3>Key Tasks Tested</h3>
+            <ul class="list-disc list-inside">
+                <li>Shopkeeper: Register store, create catalog</li>
+                <li>Customer: Search local shops/products, place order</li>
+            </ul>
+            <h3>Key Observations</h3>
+            <ul class="list-disc list-inside">
+                <li>Shopkeepers found catalog creation overwhelming at first</li>
+                <li>Customers confused between product search vs. shop search</li>
+                <li>Privacy concerns over phone numbers</li>
+                <li>Positive reception of WhatsApp integration</li>
+            </ul>
+        </section>
+
+        <section id="design-enhancements" class="card">
+            <h2 class="section-title">Design Enhancements</h2>
+            <h3>Post-Testing Changes</h3>
+            <ul class="list-disc list-inside">
+                <li>Simplified product add process</li>
+                <li>Pre-filled fields for common items</li>
+                <li>Private communication channel settings</li>
+                <li>Hyperlocal range maxed to 10 km</li>
+                <li>Clear distinction between "Search Shop" and "Search Product"</li>
+            </ul>
+        </section>
+
+        <section id="final-features" class="card">
+            <h2 class="section-title">Final Features</h2>
+            <h3>For Shopkeepers</h3>
+            <ul class="list-disc list-inside">
+                <li>WhatsApp shop setup</li>
+                <li>Product catalog builder via barcode or manual</li>
+                <li>Custom delivery time slots and delivery fee control</li>
+                <li>Basic Inventory management</li>
+            </ul>
+            <h3>For Customers</h3>
+            <ul class="list-disc list-inside">
+                <li>Browse catalog in chat</li>
+                <li>Place orders and schedule delivery</li>
+                <li>Pay via WhatsApp Pay or COD</li>
+                <li>Order summary in WhatsApp chat thread</li>
+            </ul>
+        </section>
+
+        <section id="reflection-conclusion" class="card">
+            <h2 class="section-title">Reflection</h2>
+            <p class="italic text-lg text-center leading-relaxed">“Please don’t make a new app” – resounded across nearly every interview</p>
+            <p>This UX journey reaffirmed the value of meeting users where they already are. Through thoughtful research, minimal disruption to existing behavior, and a deep understanding of user constraints, we built a system that bridges tradition with technology.</p>
+
+            <h2 class="section-title mt-8">Conclusion</h2>
+            <h3>Project Impact</h3>
+            <ul class="list-disc list-inside">
+                <li>A scalable solution with low digital resistance</li>
+                <li>Empowers kiranawalas to stay competitive</li>
+                <li>Retains the intimacy of local shopping, enabled digitally</li>
+            </ul>
+            <h3>Next Steps</h3>
+            <ul class="list-disc list-inside">
+                <li>Pilot completed in a Mumbai suburb (near IIT Bombay) by a group of 5 students of Monsoon Course HCI</li>
+                <li>Integrate inventory alerts and restocking reminders</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
