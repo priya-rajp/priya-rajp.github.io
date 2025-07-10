@@ -1,143 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NHS App UX Case Study | Neuroaesthetics & UX Research</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #2D5B8D; /* A sapphire blue */
-      --text-color-dark: #222222; /* Darker for contrast */
-      --text-color-light: #444444; /* Slightly lighter for secondary text */
-      --bg-light: #e0f2f7; /* Very light blue for background */
-      --bg-white: #ffffff;
-      --border-light: #bfdae3; /* Light blue border */
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NHS App UX Case Study | Neuroaesthetics & UX Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2D5B8D; /* A sapphire blue */
+            --text-color-dark: #222222; /* Darker for contrast */
+            --text-color-light: #444444; /* Slightly lighter for secondary text */
+            --bg-light: #e0f2f7; /* Very light blue for background */
+            --bg-white: #ffffff;
+            --border-light: #bfdae3; /* Light blue border */
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-color-dark);
-      line-height: 1.6;
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+        }
 
-    h1, h2, h3 {
-      color: var(--primary-color);
-      font-family: 'Playfair Display', serif;
-    }
+        /* Headings - use Playfair Display and dark text color by default */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color-dark);
+        }
 
-    .screenshot, .wireframe {
-      display: block;
-      max-width: 100%;
-      margin: 1.5rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+        /* Specific style for the main title (h1) to match the primary color */
+        h1 {
+            color: var(--primary-color);
+            font-size: 4.5rem; /* Increased size for main title */
+            text-align: center;
+            margin-bottom: 3rem;
+            text-wrap: balance; /* Improves line breaks for large text */
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
+        /* Section titles to match portfolio's .section-title style */
+        .section-title {
+            font-size: 2.5rem; /* Larger for impact */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+            color: var(--text-color-dark);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
 
-    table, th, td {
-      border: 1px solid var(--border-light);
-    }
+        /* Container for consistent max-width and centering */
+        .container {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
 
-    th, td {
-      padding: 0.75rem;
-      text-align: left;
-    }
+        /* Section padding */
+        section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
 
-    th {
-      background-color: #e3ecf6;
-    }
+        /* Card style for content blocks, similar to portfolio */
+        .card {
+            background-color: var(--bg-white);
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* More noticeable but still subtle shadow */
+            border: 1px solid var(--border-light);
+            padding: 2.5rem; /* Increased padding */
+            margin-bottom: 2rem; /* Add margin to separate cards */
+        }
 
-    .highlight {
-      background-color: #fef3c7;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-    }
-  </style>
+        /* Image styling for screenshots and wireframes */
+        .screenshot, .wireframe {
+            display: block;
+            max-width: 100%;
+            margin: 2rem auto; /* Center images and add more vertical space */
+            border-radius: 0.75rem; /* Match card border-radius */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Consistent shadow */
+            border: 1px solid var(--border-light); /* Consistent border */
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0; /* More vertical space */
+            border-radius: 0.5rem; /* Slightly rounded corners for table */
+            overflow: hidden; /* Ensures rounded corners apply to borders */
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-light);
+        }
+
+        th, td {
+            padding: 1rem; /* Increased padding for readability */
+            text-align: left;
+            color: var(--text-color-dark); /* Ensure text color is dark */
+        }
+
+        th {
+            background-color: #e3ecf6; /* Light blue background for headers */
+            font-weight: 600; /* Make header text bolder */
+        }
+
+        /* Highlight style */
+        .highlight {
+            background-color: #fef3c7; /* Light yellow background */
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500; /* Make highlighted text slightly bolder */
+            color: var(--text-color-dark); /* Ensure highlight text is readable */
+        }
+
+        /* List styling for better readability */
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        ul li {
+            margin-bottom: 0.75rem; /* Space out list items */
+            color: var(--text-color-light); /* Lighter text for list items */
+        }
+
+        /* Strong tags for key info */
+        strong {
+            color: var(--primary-color); /* Highlight key info with primary color */
+        }
+
+        /* Link styling for consistency */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--text-color-dark);
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <h1>Designing for Emotional Closure: A Neuroaesthetic Evaluation of the NHS App</h1>
-  
-  <h2>Project Overview</h2>
-  <p><strong>Type:</strong> Speculative UX Research<br>
-     <strong>Role:</strong> UX Researcher | Neuroaesthetic Analyst<br>
-     <strong>Focus:</strong> Healthcare UX, Emotional Design, Cognitive Load, Trust</p>
-  <p>This project explores how emotional and cognitive friction in the NHS App’s appointment confirmation screen can impact user trust, clarity, and task completion.</p>
+    <div class="container">
+        <h1>Designing for Emotional Closure: A Neuroaesthetic Evaluation of the NHS App</h1>
 
-  <h2>Problem Statement</h2>
-  <p>While functionally complete, the NHS App’s appointment confirmation screen lacks emotional resolution. Users often feel uncertain, with no visual success cue or guiding language.</p>
+        <section id="overview" class="card">
+            <h2 class="section-title">Project Overview</h2>
+            <p><strong>Type:</strong> Speculative UX Research<br>
+            <strong>Role:</strong> UX Researcher | Neuroaesthetic Analyst<br>
+            <strong>Focus:</strong> Healthcare UX, Emotional Design, Cognitive Load, Trust</p>
+            <p>This project explores how emotional and cognitive friction in the NHS App’s appointment confirmation screen can impact user trust, clarity, and task completion.</p>
+        </section>
 
-  <h2>Research Questions</h2>
-  <ul>
-    <li>What emotional and cognitive barriers do users face during appointment booking?</li>
-    <li>How might we apply neuroaesthetic principles to improve clarity and emotional closure?</li>
-  </ul>
+        <section id="problem-statement" class="card">
+            <h2 class="section-title">Problem Statement</h2>
+            <p>While functionally complete, the NHS App’s appointment confirmation screen lacks emotional resolution. Users often feel uncertain, with no visual success cue or guiding language.</p>
+        </section>
 
-  <h2>Theoretical Framework</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Principle</th>
-        <th>Description</th>
-        <th>Relevance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Perceptual Fluency</td>
-        <td>Ease of visual processing increases trust</td>
-        <td>Cluttered layout reduces user confidence</td>
-      </tr>
-      <tr>
-        <td>Affective Appraisal</td>
-        <td>Visual tone impacts emotional response</td>
-        <td>Neutral tone offers no emotional resolution</td>
-      </tr>
-      <tr>
-        <td>Cognitive Load</td>
-        <td>Minimizing mental effort improves usability</td>
-        <td>Dense text increases fatigue and confusion</td>
-      </tr>
-    </tbody>
-  </table>
+        <section id="research-questions" class="card">
+            <h2 class="section-title">Research Questions</h2>
+            <ul>
+                <li>What emotional and cognitive barriers do users face during appointment booking?</li>
+                <li>How might we apply neuroaesthetic principles to improve clarity and emotional closure?</li>
+            </ul>
+        </section>
 
-  <h2>Current Screen Analysis</h2>
-  <br><img src="YOUR_NHS_SCREENSHOT.png" alt="Original NHS Confirmation Screen" class="screenshot"></br>
-  <ul>
-    <li>No visual success confirmation</li>
-    <li>High cognitive load from dense paragraphs</li>
-    <li>Emotionally flat tone</li>
-    <li>Poor layout and hierarchy</li>
-  </ul>
+        <section id="framework" class="card">
+            <h2 class="section-title">Theoretical Framework</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Principle</th>
+                        <th>Description</th>
+                        <th>Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Perceptual Fluency</td>
+                        <td>Ease of visual processing increases trust</td>
+                        <td>Cluttered layout reduces user confidence</td>
+                    </tr>
+                    <tr>
+                        <td>Affective Appraisal</td>
+                        <td>Visual tone impacts emotional response</td>
+                        <td>Neutral tone offers no emotional resolution</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Load</td>
+                        <td>Minimizing mental effort improves usability</td>
+                        <td>Dense text increases fatigue and confusion</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-  <h2>Proposed Redesign</h2>
-  <br><img src="YOUR_WIREFRAME_IMAGE.png" alt="Redesigned Figma Wireframe" class="wireframe"></br> 
-  <ul>
-    <li><span class="highlight">✅ Success icon</span> and affirming header</li>
-    <li><span class="highlight">🧘 Simplified copy</span> and whitespace for fluency</li>
-    <li><span class="highlight">🧠 Visual hierarchy</span> for clarity and ease</li>
-    <li><span class="highlight">➡️ Clear CTA</span> with emotional tone</li>
-  </ul>
+        <section id="current-analysis" class="card">
+            <h2 class="section-title">Current Screen Analysis</h2>
+            <!-- <img src="YOUR_NHS_SCREENSHOT.png" alt="Original NHS Confirmation Screen" class="screenshot"> -->
+            <p class="text-center text-gray-500 italic">Image of the original NHS Confirmation Screen would go here.</p>
+            <ul>
+                <li>No visual success confirmation</li>
+                <li>High cognitive load from dense paragraphs</li>
+                <li>Emotionally flat tone</li>
+                <li>Poor layout and hierarchy</li>
+            </ul>
+        </section>
 
-  <h2>Hypothetical Impact</h2>
-  <ul>
-    <li>Increase in user confidence post-booking</li>
-    <li>Reduced need to re-check or call for confirmation</li>
-    <li>Improved accessibility and mental ease for elderly users</li>
-  </ul>
+        <section id="proposed-redesign" class="card">
+            <h2 class="section-title">Proposed Redesign</h2>
+            <!-- <img src="https://placehold.co/800x500/2D5B8D/ffffff?text=Redesigned+Wireframe" alt="Redesigned Figma Wireframe" class="wireframe"> -->
+            <p class="text-center text-gray-500 italic">Image of the redesigned Figma Wireframe would go here.</p>
+            <ul>
+                <li><span class="highlight">✅ Success icon</span> and affirming header</li>
+                <li><span class="highlight">🧘 Simplified copy</span> and whitespace for fluency</li>
+                <li><span class="highlight">🧠 Visual hierarchy</span> for clarity and ease</li>
+                <li><span class="highlight">➡️ Clear CTA</span> with emotional tone</li>
+            </ul>
+        </section>
 
-  <h2>Reflection</h2>
-  <p>Through this speculative study, I explored how subtle design changes—grounded in psychology and perception science—can improve trust and emotional outcomes in digital healthcare.</p>
+        <section id="hypothetical-impact" class="card">
+            <h2 class="section-title">Hypothetical Impact</h2>
+            <ul>
+                <li>Increase in user confidence post-booking</li>
+                <li>Reduced need to re-check or call for confirmation</li>
+                <li>Improved accessibility and mental ease for elderly users</li>
+            </ul>
+        </section>
 
+        <section id="reflection" class="card">
+            <h2 class="section-title">Reflection</h2>
+            <p>Through this speculative study, I explored how subtle design changes—grounded in psychology and perception science—can improve trust and emotional outcomes in digital healthcare.</p>
+        </section>
+    </div>
 </body>
 </html>
