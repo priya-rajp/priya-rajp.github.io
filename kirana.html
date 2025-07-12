@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Define CSS variables for consistent theming */
         :root {
             --primary-color: #2D5B8D; /* A sapphire blue */
             --text-color-dark: #222222; /* Darker for contrast */
@@ -14,8 +15,11 @@
             --bg-light: #e0f2f7; /* Very light blue for background */
             --bg-white: #ffffff;
             --border-light: #bfdae3; /* Light blue border */
+            --dark-bar-bg: #33303c; /* Dark background for the very top bar */
+            --dark-bar-text: #ffffff; /* White text for the dark bar */
         }
 
+        /* Base body styling for font, background, and text color */
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-light);
@@ -31,8 +35,8 @@
 
         /* Specific style for the main title (h1) to match the primary color */
         h1 {
-            color: var(--primary-color);
-            font-size: 4.5rem; /* Large size for main title */
+            color: var(--dark-bar-text); /* Changed to white for the blue hero section */
+            font-size: 5.5rem; /* Increased size for main title */
             text-align: center;
             margin-bottom: 3rem;
             text-wrap: balance; /* Improves line breaks for large text */
@@ -48,6 +52,7 @@
             padding-bottom: 1rem;
             color: var(--text-color-dark);
         }
+        /* Underline effect for section titles */
         .section-title::after {
             content: '';
             display: block;
@@ -160,25 +165,76 @@
             color: var(--text-color-dark);
             text-decoration: underline;
         }
+
+        /* Header title styling */
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; /* Adjust as needed */
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .header-title:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation link styling */
+        .nav-link {
+            color: var(--text-color-light);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Hero section styling */
+        .hero-section {
+            background-color: var(--primary-color); /* Blue background */
+            padding: 6rem 1rem; /* Ample padding */
+            text-align: center;
+            color: var(--dark-bar-text); /* White text */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-                 <header class="py-4">
-                <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
-                    <a href="#" class="header-title mb-2 sm:mb-0">Priya Rajpurohit</a>
-                    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-                        <a href="https://priya-rajp.github.io/#about" class="nav-link">About</a>
-                        <a href="https://priya-rajp.github.io/#experience" class="nav-link">Experience</a>
-                        <a href="https://priya-rajp.github.io/#accomplishments" class="nav-link">Education</a>
-                        <a href="https://priya-rajp.github.io/#skills" class="nav-link">Skills</a>
-                        <a href="https://priya-rajp.github.io/#case-studies" class="nav-link">Case Studies</a>
-                        <a href="https://priya-rajp.github.io/#contact" class="nav-link">Contact</a>
-                    </div>
-                </nav>
-                 </header>
-        <h1>Digitizing Local Kirana (Mom & Pop) Stores</h1>
+    <!-- Dark bar at the very top -->
+    <div class="bg-[var(--dark-bar-bg)] py-2">
+        <div class="container mx-auto px-4">
+            <!-- You can add some content here if needed, e.g., a small message or social icons -->
+        </div>
+    </div>
 
+    <div class="container">
+        <!-- Header section with navigation -->
+        <header class="py-3 bg-white">
+            <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
+                <a href="#" class="header-title mb-2 sm:mb-0">Priya Rajpurohit</a>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+                    <a href="https://priya-rajp.github.io/#about" class="nav-link">About</a>
+                    <a href="https://priya-rajp.github.io/#experience" class="nav-link">Experience</a>
+                    <a href="https://priya-rajp.github.io/#accomplishments" class="nav-link">Education</a>
+                    <a href="https://priya-rajp.github.io/#skills" class="nav-link">Skills</a>
+                    <a href="https://priya-rajp.github.io/#case-studies" class="nav-link">Case Studies</a>
+                    <a href="https://priya-rajp.github.io/#contact" class="nav-link">Contact</a>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Hero section with the main title -->
+    <section class="hero-section">
+        <div class="container mx-auto">
+            <h1>Digitizing Local Kirana (Mom & Pop) Stores</h1>
+            <!-- Placeholder for a circle or other hero content if needed -->
+            <!-- <div class="w-32 h-32 rounded-full border-4 border-white mx-auto mt-8"></div> -->
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- About This Project Section -->
         <section id="about-project" class="card">
             <h2 class="section-title">About This Project</h2>
             <h3>Initial Design Brief</h3>
@@ -197,6 +253,7 @@
             </ul>
         </section>
 
+        <!-- Design Process Section -->
         <section id="design-process" class="card">
             <h2 class="section-title">Design Process</h2>
             <h3>Empathize</h3>
@@ -229,6 +286,7 @@
             </ul>
         </section>
 
+        <!-- User Research Section -->
         <section id="user-research" class="card">
             <h2 class="section-title">User Research</h2>
             <h3>Key Questions</h3>
@@ -247,9 +305,9 @@
                 <li>Needs: Easy inventory system, customer communication, trust-building tools</li>
                 <li>Fears: Losing customers to 10 min delivery online stores</li>
             </ul>
-           
         </section>
 
+        <!-- Comparative Analysis Section -->
         <section id="comparative-analysis" class="card">
             <h2 class="section-title">Comparative Analysis</h2>
             <p>Explored:</p>
@@ -257,9 +315,9 @@
                 <li><strong>Dunzo:</strong> Competitor in hyperlocal delivery, integrates local shops.</li>
                 <li><strong>Zepto, Blinkit, Swiggy Instamart:</strong> Centralized warehouse model.</li>
             </ul>
-           
         </section>
 
+        <!-- Key Research Findings Section -->
         <section id="key-findings" class="card">
             <h2 class="section-title">Key Research Findings</h2>
             <ul class="list-disc list-inside">
@@ -271,6 +329,7 @@
             </ul>
         </section>
 
+        <!-- Design Ideas & Strategy Section -->
         <section id="design-strategy" class="card">
             <h2 class="section-title">Design Ideas & Strategy</h2>
             <h3>Design Goals</h3>
@@ -283,6 +342,7 @@
             </ul>
         </section>
 
+        <!-- Flow Section -->
         <section id="wireframes-flow" class="card">
             <h2 class="section-title">Flow</h2>
             <h3>Grocery Shopkeeper Onboarding</h3>
@@ -305,6 +365,7 @@
             <!-- <p class="text-center text-gray-500 italic mt-8">Wireframe images for onboarding, catalog, and order flows would go here.</p> -->
         </section>
 
+        <!-- Usability Testing Section -->
         <section id="usability-testing" class="card">
             <h2 class="section-title">Usability Testing</h2>
             <h3>Key Tasks Tested</h3>
@@ -321,6 +382,7 @@
             </ul>
         </section>
 
+        <!-- Design Enhancements Section -->
         <section id="design-enhancements" class="card">
             <h2 class="section-title">Design Enhancements</h2>
             <h3>Post-Testing Changes</h3>
@@ -333,6 +395,7 @@
             </ul>
         </section>
 
+        <!-- Final Features Section -->
         <section id="final-features" class="card">
             <h2 class="section-title">Final Features</h2>
             <h3>For Shopkeepers</h3>
@@ -351,6 +414,7 @@
             </ul>
         </section>
 
+        <!-- Reflection and Conclusion Section -->
         <section id="reflection-conclusion" class="card">
             <h2 class="section-title">Reflection</h2>
             <p class="italic text-lg text-center leading-relaxed">“Please don’t make a new app” – resounded across nearly every interview</p>
